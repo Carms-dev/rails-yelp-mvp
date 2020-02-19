@@ -1,0 +1,24 @@
+
+<h1>Welcome to Yelppie</h1>
+<p>Your Restaurant Finder of Choice :)</p>
+
+<% @restaurants.each do |restaurant| %>
+    <div class="card my-2 p-2">
+      <div>
+        <h4><%= link_to restaurant.name, restaurant_path(restaurant) %></h4>
+        <p>Average Rating: <%= restaurant.average_rating %></p>
+      </div>
+      <div>
+        <span>
+          <%= link_to edit_restaurant_path(restaurant) do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+          <%= link_to restaurant_path(restaurant), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
+        </span>
+      </div>
+    </div>
+<% end %>
+
+
